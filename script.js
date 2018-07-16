@@ -1,8 +1,7 @@
 
 function myFunction(){
 
-
-let email = document.querySelector("#email").value;
+var email = document.querySelector("#email").value;
 //console.log(email);
 
   if(!email || email === "")
@@ -10,29 +9,8 @@ let email = document.querySelector("#email").value;
     alert("no value supplied");
     return;
   }
-  let queryURL = "https://localhost:3000/"+email;
-//alert(queryURL);
-/*
-  fetch(queryURL).then((response) => {
-    if (response.ok) {
-      alert("res");
-      return response.json();
-    } else {
-      alert("thro");
-      throw new Error('Something went wrong');
-    }
-  })
-  .then((responseJson) => {
-    alert("call");
-          displayEmailResult(result);
-    // Do something with the response
-  })
-  .catch((error) => {
-    alert("err");
-    console.log(error)
-  });
+  var queryURL = "http://localhost:4000/"+email;
 
-*/
 
   fetch(queryURL)
     .then(function(response){
@@ -42,15 +20,15 @@ let email = document.querySelector("#email").value;
       displayEmailResult(result);
     })
     .catch(function(error){
-      alert("Error Occured");
+       //alert(queryURL);
       //displayEmailResult(result);
     });
 
 }
 function displayEmailResult(result){
 
-  let msgdiv = document.querySelector("#message");
-  let rsdiv = document.querySelector("#result");
+  var msgdiv = document.querySelector("#message");
+  var rsdiv = document.querySelector("#result");
 
   if(result.message == "Your email is secure"){
     rsdiv.innerHTML = "";
@@ -72,7 +50,7 @@ else {
   var i = 0;
     alert("else");
   result.forEach(function(currentResult){
-  let hackedHTMLDiv = `<div class="jumbotron" id="id_${i}">\
+  var hackedHTMLDiv = `<div class="jumbotron" id="id_${i}">\
                             <div class="row">
                               <div class="col-xs-12 col-sm-4">
                                 <h5>${currentResult.TiTle} : <small> <a target="_blank" href= ${currentResult.Domain} >website </a></h5>
