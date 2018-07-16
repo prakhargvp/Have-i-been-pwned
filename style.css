@@ -39,3 +39,11 @@ footer{
   color: #FFFFFF;
   background: #000000;
 }
+
+.dataclasses {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dataclasses > * {
+  margin:5px;
+}
